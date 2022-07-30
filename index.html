@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script type="text/javascript" src="script.js"></script> 
+  </head>
+  <body onload="initialize()">
+    <div class="background">
+      <span id="hostname">Hostname</span>
+    </div>
+    <div class="container">
+      <div id="users" class="center">
+        <div id="user_template" class="user">
+          <div class="user_image_wrapper">
+            <img class="user_image" src="img/avatar.png"/>
+          </div>
+          <span class="user_name">User</span>
+        </div>
+      </div>
+      <div id="password" class="center" style="display: none;">
+        <form action="javascript: provide_secret()" class="password_prompt">
+          <span class="user_name" onclick="user_clicked(event)">User</span>
+          <div class="inputBox">
+            <input id="password_entry" type="password" required="required"/>
+            <label for="password_entry">Password</label>
+          </div>
+          <div class="inputBox">
+            <select id="sessions">
+              <option id="session_template" value="">&nbsp;</option>
+            </select>
+            <label for="sessions">sessions</label>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="message" class="message mhidden">
+      <div id="message_content"></div>
+    </div>
+    <div class="buttonMenu">
+      <a href="#" onclick="lightdm.shutdown()">
+        <svg viewBox="0 0 512 512"><path d="M288 256C288 273.7 273.7 288 256 288C238.3 288 224 273.7 224 256V32C224 14.33 238.3 0 256 0C273.7 0 288 14.33 288 32V256zM80 256C80 353.2 158.8 432 256 432C353.2 432 432 353.2 432 256C432 201.6 407.3 152.9 368.5 120.6C354.9 109.3 353 89.13 364.3 75.54C375.6 61.95 395.8 60.1 409.4 71.4C462.2 115.4 496 181.8 496 255.1C496 388.5 388.5 496 256 496C123.5 496 16 388.5 16 255.1C16 181.8 49.75 115.4 102.6 71.4C116.2 60.1 136.4 61.95 147.7 75.54C158.1 89.13 157.1 109.3 143.5 120.6C104.7 152.9 80 201.6 80 256z"/></svg>
+        <span>Shuts down</span>
+      </a>
+      <a href="#" onclick="lightdm.suspend()">
+        <svg viewBox="0 0 512 512"><path d="M416 32h-64c-17.67 0-32 14.33-32 32s14.33 32 32 32h64c17.67 0 32 14.33 32 32v256c0 17.67-14.33 32-32 32h-64c-17.67 0-32 14.33-32 32s14.33 32 32 32h64c53.02 0 96-42.98 96-96V128C512 74.98 469 32 416 32zM342.6 233.4l-128-128c-12.51-12.51-32.76-12.49-45.25 0c-12.5 12.5-12.5 32.75 0 45.25L242.8 224H32C14.31 224 0 238.3 0 256s14.31 32 32 32h210.8l-73.38 73.38c-12.5 12.5-12.5 32.75 0 45.25s32.75 12.5 45.25 0l128-128C355.1 266.1 355.1 245.9 342.6 233.4z"/></svg>
+        <span>Suspends</span>
+      </a>
+      <a href="#" onclick="lightdm.restart()">
+        <svg viewBox="0 0 512 512"><path d="M464 16c-17.67 0-32 14.31-32 32v74.09C392.1 66.52 327.4 32 256 32C161.5 32 78.59 92.34 49.58 182.2c-5.438 16.81 3.797 34.88 20.61 40.28c16.89 5.5 34.88-3.812 40.3-20.59C130.9 138.5 189.4 96 256 96c50.5 0 96.26 24.55 124.4 64H336c-17.67 0-32 14.31-32 32s14.33 32 32 32h128c17.67 0 32-14.31 32-32V48C496 30.31 481.7 16 464 16zM441.8 289.6c-16.92-5.438-34.88 3.812-40.3 20.59C381.1 373.5 322.6 416 256 416c-50.5 0-96.25-24.55-124.4-64H176c17.67 0 32-14.31 32-32s-14.33-32-32-32h-128c-17.67 0-32 14.31-32 32v144c0 17.69 14.33 32 32 32s32-14.31 32-32v-74.09C119.9 445.5 184.6 480 255.1 480c94.45 0 177.4-60.34 206.4-150.2C467.9 313 458.6 294.1 441.8 289.6z"/></svg>
+        <span>Restart</span>
+      </a>
+    </div>
+  </body>
+</html>

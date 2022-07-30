@@ -1,0 +1,5 @@
+[theme]
+name=lts
+description=A simple and modern login screen for linux.
+engine=lightdm-webkit2-greeter
+url=index.html
