@@ -131,26 +131,26 @@ function initialize_sessions() {
   }
 }
 
-function initialize() {
-    initialize_users();
-    initialize_sessions();
-    document.querySelector("#hostname").innerText = lightdm.hostname;
-    document.body.style.opacity = 1;
-}
-
 function on_image_error(e) {
   e.currentTarget.src = "img/avatar.png";
 }
 
-function keypress(e) {
+window.addEventListener("load", () => {
+  initialize_users();
+  initialize_sessions();
+  document.querySelector("#hostname").innerText = lightdm.hostname;
+  document.body.style.opacity = 1;
+});
+
+window.addEventListener("keypress", (e) => {
   if (!clicked && (e.keyCode == 32 || e.keyCode == 13)) {
     clicked = true;
     show_message("Authenticating");
     start_authentication(lightdm.users[0].name);
+    return;
   }
   if (clicked && e.keyCode == 27) {
     user_clicked("");
+    return;
   }
-}
-
-window.addEventListener("keypress", keypress);
+});
