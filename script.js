@@ -23,6 +23,7 @@ function show_prompt(text) {
   let password_entry = document.querySelector("#password_entry");
   if (password_container.style.display === "none") {
     document.querySelector("#users").style.display = "none";
+    document.querySelector("#bg").classList.toggle("bga");
 
     for (var user of lightdm.users) {
       if(user.name == lightdm.authentication_user){
@@ -70,6 +71,7 @@ function user_clicked(event) {
     lightdm.cancel_authentication();
     document.querySelector("#users").style.display = "";
     document.querySelector("#password").style.display = "none";
+    document.querySelector("#bg").classList.toggle("bga");
     show_error("Canceled");
   } else {
     clicked = true;
@@ -139,7 +141,9 @@ window.addEventListener("load", () => {
   initialize_users();
   initialize_sessions();
   document.querySelector("#hostname").innerText = lightdm.hostname;
-  document.body.style.opacity = 1;
+  setTimeout(function(){
+    document.body.style.opacity = 1;
+  }, 100);
 });
 
 window.addEventListener("keypress", (e) => {

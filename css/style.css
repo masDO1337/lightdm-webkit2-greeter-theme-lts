@@ -8,7 +8,7 @@
 html, body {width: 100%; height: 100%; overflow: hidden}
 
 body {
-  opacity: 1;
+  opacity: 0;
   -webkit-transition: all 0.9s;
   transition: all 0.9s;
 }
@@ -23,14 +23,27 @@ svg {
   top: 0;
   width: 100%;
   height: 100%;
-  background: black;
+  background: #000;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.bga {
+  filter: blur(5px) brightness(60%);
+}
+
+.background img {
+  width: 100%;
+  height: 100%;
 }
 
 .background span {
-  color: #151515;
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  color: #ffffff11;
   font-size: 1.5em;
   text-transform: uppercase;
-  padding: 5px;
 }
 
 .container {
@@ -58,18 +71,15 @@ svg {
 }
 
 .user:hover {
-  border: 1px solid #777777;
   border-radius: 10px;
   transform: scale(1.2);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .user:hover .user_name {
-  color: #414141;
-  background: #979797;
+  color: #fff;
   letter-spacing: 0.2em;
   margin: 0 10px;
-  border-radius: 5px;
-  transform: translateY(10px);
 }
 
 .user_image_wrapper {
@@ -135,7 +145,7 @@ svg {
   width: 100%;
   padding: 10px;
   border: 1px solid rgba(255, 255, 255, 0.35);
-  background: transparent;
+  background: rgba(0, 0, 0, 0.3);
   background-repeat: no-repeat;
   border-radius: 5px;
   font-size: 1em;
